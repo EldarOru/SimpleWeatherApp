@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SimpleWeatherApp</string>
+    <string name="location">Location</string>
+    <string name="update">Updated at</string>
+    <string name="min_temp">Min temp</string>
+    <string name="max_temp">Max temp</string>
 </resources>
