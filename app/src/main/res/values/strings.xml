@@ -4,4 +4,13 @@
     <string name="update">Updated at</string>
     <string name="min_temp">Min temp</string>
     <string name="max_temp">Max temp</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="wind">Wind</string>
+    <string name="info">Info</string>
+    <string name="sunset">Sunset</string>
+    <string name="error">Something went wrong</string>
+    <string name="developed">Developed by</string>
+    <string name="myName">Eldar</string>
 </resources>
