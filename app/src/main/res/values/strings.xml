@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SimpleWeatherApp</string>
     <string name="location">Location</string>
-    <string name="update">Updated at</string>
+    <string name="updateAt">Updated at</string>
     <string name="min_temp">Min temp</string>
     <string name="max_temp">Max temp</string>
     <string name="sunrise">Sunrise</string>
@@ -13,4 +13,6 @@
     <string name="error">Something went wrong</string>
     <string name="developed">Developed by</string>
     <string name="myName">Eldar</string>
+    <string name="update">Update</string>
+    <string name="chooseCity">Choose city</string>
 </resources>
