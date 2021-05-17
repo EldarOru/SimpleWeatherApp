@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     var CITY: String = "saint petersburg, ru"
     val API: String = ""
     private lateinit var sharedPreferences:SharedPreferences
-    //TODO ИЗМЕНИТЬ ЦВЕТ MENU
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -106,6 +106,7 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.wind).text = windSpeed
                 findViewById<TextView>(R.id.pressure).text = pressure
                 findViewById<TextView>(R.id.humidity).text = humidity
+                checkIcon(weather.getString("main").capitalize())
 
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
@@ -133,6 +134,17 @@ class MainActivity : AppCompatActivity() {
         editor.apply()
         builder.create() }
         builder.show()
+    }
 
+    private fun checkIcon(string: String){
+        when(string){
+            "Rain" -> findViewById<ImageView>(R.id.weatherCondition).setImageResource(R.drawable.ic_wi_rain)
+            "Clouds" -> findViewById<ImageView>(R.id.weatherCondition).setImageResource(R.drawable.ic_wi_cloud)
+            "Snow" -> findViewById<ImageView>(R.id.weatherCondition).setImageResource(R.drawable.ic_wi_snow)
+            "Clear" -> findViewById<ImageView>(R.id.weatherCondition).setImageResource(R.drawable.ic_wi_day_sunny)
+            "Thunderstorm" -> findViewById<ImageView>(R.id.weatherCondition).setImageResource(R.drawable.ic_wi_thunderstorm)
+            "Drizzle" -> findViewById<ImageView>(R.id.weatherCondition).setImageResource(R.drawable.ic_wi_rain_mix)
+            else -> {findViewById<ImageView>(R.id.weatherCondition).setImageResource(R.drawable.ic_wi_alien)}
+        }
     }
 }

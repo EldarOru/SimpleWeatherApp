@@ -36,6 +36,24 @@
 
             </TextView>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addressContainer"
+            android:layout_above="@id/overviewContainer"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/weatherCondition"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/ic_wi_day_cloudy"
+                app:tint="@color/white">
+
+            </ImageView>
+
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/overviewContainer"
             android:layout_width="match_parent"
@@ -251,14 +269,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:text="@string/developed">
+                        android:text="V1.1">
 
                     </TextView>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="@string/myName"
+                        android:text="By Eldar"
                         android:id="@+id/info">
 
                     </TextView>
