@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
         input.inputType = InputType.TYPE_CLASS_TEXT
         builder.setView(input)
         builder.setMessage("Enter your city")
-        builder.setNegativeButton("No") { dialog, which ->
+        builder.setNegativeButton("No") { _, _ ->
             Toast.makeText(applicationContext, "Back", Toast.LENGTH_SHORT).show()}
         builder.setPositiveButton("Change") { dialog, which -> CITY = input.text.toString()
         WeatherTask().execute()
