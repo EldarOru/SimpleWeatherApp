@@ -23,7 +23,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private val info: String = "CITY_INFO"
     var CITY: String = "saint petersburg, ru"
-    val API: String = ""
+    private val API: String = ""
     private lateinit var sharedPreferences:SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
