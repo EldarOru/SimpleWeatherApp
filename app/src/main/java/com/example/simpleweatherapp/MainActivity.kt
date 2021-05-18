@@ -84,9 +84,9 @@ class MainActivity : AppCompatActivity() {
                 val weather = jsonObject.getJSONArray("weather").getJSONObject(0)
                 val updatedAt: Long = jsonObject.getLong("dt")
                 val updatedAtText = getString(R.string.updateAt) + ": " + SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt * 1000))
-                val temp = main.getString("temp") + "°С"
-                val tempMin = getString(R.string.min_temp) + " " + main.getString("temp_min") + "°С"
-                val tempMax = getString(R.string.max_temp) + " " + main.getString("temp_max") + "°С"
+                val temp = main.getString("temp").substring(0,main.getString("temp").length-1) + "°С"
+                val tempMin = getString(R.string.min_temp) + " " + main.getString("temp_min").substring(0,main.getString("temp_min").length-1) + "°С"
+                val tempMax = getString(R.string.max_temp) + " " + main.getString("temp_max").substring(0,main.getString("temp_max").length-1) + "°С"
                 val pressure = main.getString("pressure")
                 val humidity = main.getString("humidity")
                 val sunrise: Long = sys.getLong("sunrise")
