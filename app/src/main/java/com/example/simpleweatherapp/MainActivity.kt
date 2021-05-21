@@ -16,6 +16,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import org.json.JSONObject
 import java.net.URL
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -23,7 +24,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private val info: String = "CITY_INFO"
     var CITY: String = "saint petersburg, ru"
-    private val API: String = ""
+    private val API: String = "6f111a1a708cd4b1fbcc8e87f9b62795"
     private lateinit var sharedPreferences:SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
             try {
+                val decimal = DecimalFormat("#.#")
                 val jsonObject = JSONObject(result)
                 val main = jsonObject.getJSONObject("main")
                 val sys = jsonObject.getJSONObject("sys")
@@ -84,9 +86,10 @@ class MainActivity : AppCompatActivity() {
                 val weather = jsonObject.getJSONArray("weather").getJSONObject(0)
                 val updatedAt: Long = jsonObject.getLong("dt")
                 val updatedAtText = getString(R.string.updateAt) + ": " + SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt * 1000))
-                val temp = main.getString("temp").substring(0,main.getString("temp").length-1) + "°С"
-                val tempMin = getString(R.string.min_temp) + " " + main.getString("temp_min").substring(0,main.getString("temp_min").length-1) + "°С"
-                val tempMax = getString(R.string.max_temp) + " " + main.getString("temp_max").substring(0,main.getString("temp_max").length-1) + "°С"
+                val temp = decimal.format(main.getString("temp").toDouble()) + "°С"
+                //val tempMin = getString(R.string.min_temp) + " " + main.getString("temp_min").substring(0,main.getString("temp_min").length-1) + "°С"
+                val tempMin = getString(R.string.min_temp) + " " + decimal.format(main.getString("temp_min").toDouble()) + "°С"
+                val tempMax = getString(R.string.max_temp) + " " + decimal.format(main.getString("temp_max").toDouble()) + "°С"
                 val pressure = main.getString("pressure")
                 val humidity = main.getString("humidity")
                 val sunrise: Long = sys.getLong("sunrise")
@@ -147,4 +150,6 @@ class MainActivity : AppCompatActivity() {
             else -> {findViewById<ImageView>(R.id.weatherCondition).setImageResource(R.drawable.ic_wi_alien)}
         }
     }
+
+
 }

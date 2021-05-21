@@ -49,7 +49,8 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:src="@drawable/ic_wi_day_cloudy"
-                app:tint="@color/white">
+                app:tint="@color/white"
+                android:layout_gravity="bottom">
 
             </ImageView>
 
